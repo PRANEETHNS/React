@@ -8,13 +8,18 @@ import {EXAMPLES} from './data.js';
 
 function App() {
   const [selectedTopic, setSelectedTopic] = useState('components');
+  const componentVal = 'components';
+  const jsxVal = 'jsx';
+  const propsVal = 'props';
+  const stateVal = 'state';
 
   function handleSelect(selectedButton){
     setSelectedTopic(selectedButton);
     console.log("App Hello World "+ selectedButton);
   }
 
-  return (
+  return (   
+
     <div>     
       <Header></Header>
       <main>
@@ -29,10 +34,10 @@ function App() {
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-           <TabButton buttonClicked={()=> handleSelect('components')}>Components</TabButton>
-           <TabButton buttonClicked={()=> handleSelect('jsx')}>JSX</TabButton>
-           <TabButton buttonClicked={()=> handleSelect('props')}>Props</TabButton>
-           <TabButton buttonClicked={()=> handleSelect('state')}> State</TabButton>
+           <TabButton buttonClicked={()=> handleSelect(componentVal)} isTabSelected={selectedTopic===componentVal}>Components</TabButton>
+           <TabButton buttonClicked={()=> handleSelect(jsxVal)} isTabSelected={selectedTopic===jsxVal}>JSX</TabButton>
+           <TabButton buttonClicked={()=> handleSelect(propsVal)} isTabSelected={selectedTopic===propsVal}>Props</TabButton>
+           <TabButton buttonClicked={()=> handleSelect(stateVal)} isTabSelected={selectedTopic===stateVal}> State</TabButton>
           </menu>
           {selectedTopic}
          
